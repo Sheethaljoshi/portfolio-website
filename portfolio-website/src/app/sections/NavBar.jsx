@@ -23,8 +23,8 @@ const [navbarOpen, setNavbarOpen] = useState(false);
   return (
     
     <nav className='fixed right-0 left-0 top-0 bg-[#121212] opacity-100 z-10'>
-        <div className='flex flex-wrap items-center justify-between mx-auto px-4 py-2'>
-            <Link href={"/"} className="text-2xl md:text-5xl text-white font-semibold">LOGO</Link>
+        <div className='flex flex-wrap items-center justify-between mx-auto px-6 py-6'>
+            <Link href={"/"} className="text-2xl md:text-4xl text-white font-semibold">Sheethal's Portfolio</Link>
             <div className='block md:hidden mobile-menu'>
             {!navbarOpen ? (
             <button
