@@ -1,4 +1,5 @@
-import React from 'react'
+"use client"
+import React, {useState} from 'react'
 import ProjectCard from './Projectcard'
 import ProjectTag from './ProjectTag';
 
@@ -52,14 +53,34 @@ const projectsData = [
   
 
 const ProjectSection = () => {
+    const [tag,setTag] = useState("All");
+    const handleTagChange = (newTag) => {
+        setTag(newTag);
+      };
+    const filteredProjects = projectsData.filter((project) =>
+      project.tag.includes(tag)
+    );
   return (
-    <> <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">Project Section</h2><div  className="grid md:grid-cols-3 gap-8 md:gap-12">
-        <div className='flex text-white flex-row items-center justify-center gap-2 py-6'>
-            <button className='rounded-full border-2 border-purple-500 text-xl cursor-pointer px-6 py-3'>All</button>
-            <button className='rounded-full border-2 border-slate-400 text-xl hover:border-white cursor-pointer px-6 py-3'>Web</button>
-            <button className='rounded-full border-2 border-slate-400 text-xl hover:border-white cursor-pointer px-6 py-3'>ML</button>
+    <> <h2 className="text-center text-4xl font-bold text-white mt-4 mb-6 md:mb-4">Project Section</h2>
+        <div className='flex mb-4 text-white flex-row items-center justify-center gap-2 py-6'>
+        <ProjectTag
+          onClick={handleTagChange}
+          name="All"
+          isSelected={tag === "All"}
+        />
+        <ProjectTag
+          onClick={handleTagChange}
+          name="Web"
+          isSelected={tag === "Web"}
+        />
+        <ProjectTag
+          onClick={handleTagChange}
+          name="ML"
+          isSelected={tag === "ML"}
+        />
         </div>
-        {projectsData.map((project)=> 
+        <div  className="grid md:grid-cols-2 gap-8 md:gap-12">
+        {filteredProjects.map((project)=> 
         <ProjectCard key={project.id} 
         title={project.title} 
         description={project.description} 
