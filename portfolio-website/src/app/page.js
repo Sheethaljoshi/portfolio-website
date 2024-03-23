@@ -2,6 +2,7 @@ import HeroSection from "./sections/HeroSection";
 import NavBar from "./sections/NavBar";
 import AboutSection from "./sections/AboutSection";
 import { Manrope } from 'next/font/google'
+import ProjectSection from "./sections/ProjectSection";
 
 const poppins = Manrope({ subsets: ['latin'], weight: '400' })
 
@@ -12,7 +13,8 @@ export default function Home() {
       <div className="container mx-auto px-12 py-6 mt-24">
         <HeroSection />
         <AboutSection />
+        <ProjectSection/>
       </div>
     </main>
   );
-}
+} 
