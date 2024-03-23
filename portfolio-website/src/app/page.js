@@ -3,6 +3,8 @@ import NavBar from "./sections/NavBar";
 import AboutSection from "./sections/AboutSection";
 import { Manrope } from 'next/font/google'
 import ProjectSection from "./sections/ProjectSection";
+import EmailSection from "./sections/EmailSection";
+import Footer from "./sections/Footer";
 
 const poppins = Manrope({ subsets: ['latin'], weight: '400' })
 
@@ -14,7 +16,10 @@ export default function Home() {
         <HeroSection />
         <AboutSection />
         <ProjectSection/>
+        <EmailSection/>
+        
       </div>
+      <Footer/>
     </main>
   );
 } 
